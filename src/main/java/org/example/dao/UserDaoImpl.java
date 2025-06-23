@@ -7,18 +7,7 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-/**
- * Реализация интерфейса {@link UserDao} с использованием Hibernate.
- * <p>
- * Обеспечивает доступ к данным сущности {@link User}.
- */
 public class UserDaoImpl implements UserDao {
-
-    /**
-     * Сохраняет нового пользователя в базе данных.
-     *
-     * @param user объект {@link User}, который нужно сохранить
-     */
     @Override
     public void save(User user) {
         Transaction tx = null;
@@ -32,12 +21,6 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    /**
-     * Ищет пользователя по его ID.
-     *
-     * @param id идентификатор пользователя
-     * @return {@link User}, если найден, иначе {@code null}
-     */
     @Override
     public User findById(Long id) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -45,11 +28,6 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    /**
-     * Возвращает список всех пользователей из базы данных.
-     *
-     * @return список объектов {@link User}
-     */
     @Override
     public List<User> findAll() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -57,11 +35,6 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    /**
-     * Обновляет существующего пользователя в базе данных.
-     *
-     * @param user объект {@link User} с обновлёнными данными
-     */
     @Override
     public void update(User user) {
         Transaction tx = null;
@@ -75,11 +48,6 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    /**
-     * Удаляет пользователя из базы данных.
-     *
-     * @param user объект {@link User}, который нужно удалить
-     */
     @Override
     public void delete(User user) {
         Transaction tx = null;
